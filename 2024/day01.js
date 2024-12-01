@@ -193,12 +193,12 @@ const distanceCalc = (input) => {
             arrayRight.push(input[i]);
         }
     }
-    const sortedLeft = arrayLeft.sort((a, b) => a - b);
-    const sortedRight = arrayRight.sort((a, b) => a - b);
+    arrayLeft.sort((a, b) => a - b);
+    arrayRight.sort((a, b) => a - b);
     const finalArray = []
     for (let j = 0; j<arrayLeft.length; j++) {
-        finalArray.push(sortedLeft[j] - sortedRight[j])
-    }
+        finalArray.push(Math.abs(arrayLeft[j] - arrayRight[j]))
+    }    
     const reducer = (accum, current) => accum + current
     const solution = finalArray.reduce(reducer, 0)
     console.log(solution)
